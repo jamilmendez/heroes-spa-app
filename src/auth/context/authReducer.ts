@@ -1,20 +1,11 @@
 import { types } from "../types/types";
+import { ActionType, AuthState } from "../interfaces/authInterface";
 
-export interface ActionType {
-  type: string;
-  payload?: string | number | {};
-}
-
-interface StateProps {
-  logged: boolean;
-  name?: string;
-}
-
-const initialState: StateProps = {
+const initialState: AuthState = {
   logged: false,
 };
 
-export const authReducer = (state = initialState, action: ActionType) => {
+export const authReducer = (state = initialState, action: ActionType): AuthState => {
   switch (action.type) {
     case types.login:
       return {
